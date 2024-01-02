@@ -1,0 +1,1 @@
+rpcLockFilter=io.github.gaojindeng.lock.dubbo.filter.RpcLockConsumerFilter
