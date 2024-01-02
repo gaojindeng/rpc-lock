@@ -2,6 +2,7 @@
 最强性能分布式锁实现方案
 ### 说明
 源码地址：[https://github.com/gaojindeng/rpc-lock](https://github.com/gaojindeng/rpc-lock)
+
 在RPC-Lock中，利用Dubbo进行RPC调用时，根据特定的key进行哈希路由，将请求路由到同一个节点，并在该节点内部使用ReentrantLock来实现分布式锁的功能。
 
 在服务提供者节点扩容时，可能会导致相同key路由到多个节点。为了应对这种情况，我设计了一种机制：在扩容时会对锁进行升级，从最初的ReentrantLock本地锁升级到Redis的分布式锁。升级的具体步骤是先获取本地ReentrantLock锁，然后再获取Redis分布式锁，从而确保在锁升级过程中保持资源访问的安全性。
