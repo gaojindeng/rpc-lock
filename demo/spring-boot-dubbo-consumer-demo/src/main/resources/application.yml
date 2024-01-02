@@ -1,0 +1,28 @@
+server:
+  port: 9000
+spring:
+  redis:
+    url: "redis://127.0.0.1:6379"
+  application:
+    name: dubbo-consumer-demo
+dubbo:
+  application:
+    name: dubbo-consumer-demo
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: zk-registry
+    address: zookeeper://127.0.0.1:2181
+  config-center:
+    address: zookeeper://127.0.0.1:2181
+  metadata-report:
+    address: zookeeper://127.0.0.1:2181
+  provider:
+    threads: 2000
+    timeout: 60000
+    retries: 1
+  consumer:
+    threads: 2000
+    retries: 1
+    timeout: 60000

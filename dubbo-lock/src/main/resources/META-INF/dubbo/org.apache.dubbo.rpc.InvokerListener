@@ -1,0 +1,1 @@
+myInvokerListener=io.github.gaojindeng.lock.dubbo.listener.RpcLockInvokerListener
